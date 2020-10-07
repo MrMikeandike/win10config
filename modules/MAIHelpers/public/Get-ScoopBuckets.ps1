@@ -1,6 +1,7 @@
 Function Get-ScoopBuckets {
     [CmdletBinding()]
     PARAM(
+      [string]
       $ScoopDir = $(join-path $HOME "scoop")
     )
 
@@ -22,7 +23,7 @@ Function Get-ScoopBuckets {
           name = $_;
           url = $url
           command = "scoop bucket add ${_} ${url}"
-          known = "false"
+          known = $False
           
         }) 
       }
